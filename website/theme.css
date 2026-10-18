@@ -1,0 +1,33 @@
+/* Shared palette with the Portfolio website. */
+:root{color-scheme:dark;--bg:#0b1120;--surface:#111b2e;--accent:#60a5fa;--text:#eaf0f9;--muted:#9caec5;--line:#26344a;--paper:var(--surface);--ink:var(--text);--green:var(--accent)}
+body.reader{background:var(--bg);color:var(--text)}
+.reader-header,.slide-header,.slide-note,.method-example,.chart-bottom-bar{border-color:var(--line)}
+.reader-brand span,.reader-position,.reader-hint,.slide-note,.chart-slide .slide-note,.presentation-chart-heading p,.chart-bottom-bar,.figure-sub,.figcaption,.legend,.stat-label,.stat-note,.finding p,.prose p{color:var(--muted)}
+.edition-label,.presentation-chart-heading #viewer-status{background:#172b48;color:var(--accent)}
+.presentation-slide,.closed-book,.presentation-chart-shell,.slide-body .figure,.table-wrap{background:var(--surface);border-color:var(--line);box-shadow:none}
+.slide-header h1,.presentation-chart-heading h2,.rules-grid h2,.slide-body .figure-title,.finding h3,.stat-value{color:var(--text)}
+.slide-header .lede,.chart-slide .slide-header .lede,.rules-grid p,.method-example,.chart-reading-key,.chart-takeaway p{color:var(--muted)}
+.rule-equation{background:#142540;border-color:#2b466d}.rule-equation span,.rule-equation code,.rules-grid article>span,.chart-reading-key strong,.chart-takeaway>span{color:var(--accent)}
+.key-line{background:var(--accent)}
+.turn-button,.explore-button,.segmented,.slide-body .controls{background:#142137;color:var(--text);border-color:var(--line)}
+.turn-button.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.turn-button:hover,.explore-button:hover{background:#1c3150;color:var(--text)}
+.turn-button.primary:hover{background:#93c5fd;color:var(--bg)}
+.page-dots span{background:#34465f}.page-dots .current{background:var(--accent)}
+.segmented button{color:var(--muted)}.segmented button.selected{background:#263e60;color:var(--text)}
+.slide-body .verdict,.draft-notice{background:#142540;color:var(--text)}
+.verdict-title,.verdict p,.notice-symbol{color:var(--text)}
+.slide-body .stats,.data-table th,.data-table td,.finding{border-color:var(--line)}
+.data-table th{background:#142137;color:var(--muted)}.data-table td{color:var(--text)}
+.chart-tooltip{background:var(--surface);border-color:var(--line);color:var(--text)}
+.chart svg text{fill:var(--muted)}.chart svg .grid{stroke:var(--line)}
+.viewer-unavailable{background:#172b48;color:var(--text)}
+#spread-viewer{background:var(--surface)}
+a:hover,.text-button{color:var(--accent)}:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+/* The chart is a separate document with the same palette. */
+body.snapshot-theme{margin:0;background:var(--surface);color:var(--text)}
+.snapshot-theme .toolbar,.snapshot-theme.exploring .toolbar{background:#142137;border-color:var(--line)}
+.snapshot-theme.exploring aside{border-color:var(--line)}
+.snapshot-theme button,.snapshot-theme select,.snapshot-theme input{background:#142137;color:var(--text);border-color:#344963}
+.snapshot-theme aside label,.snapshot-theme #message{color:var(--muted)}
+.reader-brand{color:var(--text)}

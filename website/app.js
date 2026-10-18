@@ -88,13 +88,13 @@ function chart(lines, labels, format, indexLabel = 'Sample day') {
   svg.addEventListener('pointermove',e=>{const bounds=svg.getBoundingClientRect(),px=(e.clientX-bounds.left)/bounds.width*W;const i=Math.max(0,Math.min(n-1,Math.round((px-L)/(W-L-R)*(n-1))));cross.setAttribute('x1',x(i));cross.setAttribute('x2',x(i));tooltip.textContent=`${indexLabel} ${i+1} · illustrative\n`+lines.map(l=>`${l.label}: ${format(l.values[i])}`).join('\n');tooltip.hidden=false;tooltip.style.left=Math.min(Math.max(0,e.clientX-bounds.left+10),Math.max(0,bounds.width-215))+'px';tooltip.style.top='25px';});
   svg.addEventListener('pointerleave',()=>tooltip.hidden=true);
 }
-function drawPrices(){const s=series.slice(-state.range);chart([{label:'Near',values:s.map(d=>d.near),color:'#315c4c'},{label:'Far',values:s.map(d=>d.far),color:'#ad8150'}],'Synthetic near and far futures prices',v=>Math.round(v).toLocaleString('en-US'));}
+function drawPrices(){const s=series.slice(-state.range);chart([{label:'Near',values:s.map(d=>d.near),color:'#60a5fa'},{label:'Far',values:s.map(d=>d.far),color:'#fbbf24'}],'Synthetic near and far futures prices',v=>Math.round(v).toLocaleString('en-US'));}
 function drawBacktest(){
   const gross=Array.from({length:19},(_,i)=>i===0?0:i*13+Math.sin(i*.95)*27-15);
   const totalPerTrade=4*(state.fees+state.slippage);
   const net=gross.map((v,i)=>v-(state.costs?i*totalPerTrade:0));
   document.querySelector('#backtest-stats').innerHTML=stats([['DEMO GROSS',`${gross.at(-1).toFixed(0)} bps`,'Synthetic price-return proxy'],['DEMO NET',`${net.at(-1).toFixed(0)} bps`,'Same path after selected costs'],['ASSUMED ROUND TRIPS','18','Four fills each · notional-based cost model']]);
-  chart([{label:'After costs',values:net,color:'#315c4c'},{label:'Before costs',values:gross,color:'#ad8150'}],'Hypothetical before and after cost comparison',v=>`${Math.round(v)}`,'Round trip');
+  chart([{label:'After costs',values:net,color:'#60a5fa'},{label:'Before costs',values:gross,color:'#fbbf24'}],'Hypothetical before and after cost comparison',v=>`${Math.round(v)}`,'Round trip');
   document.querySelector('#chart-caption').textContent='FIG. 03 — SYNTHETIC SCENARIO · UNITS: BASIS POINTS OF ONE-LEG NOTIONAL';
 }
 function exportSample(){
@@ -163,7 +163,7 @@ function render(){
  document.querySelector('#page-position').textContent=`Page ${index+1} of ${slides.length}`;
  document.querySelector('#page-dots').innerHTML=slides.map((p,i)=>`<span class="${i===index?'current':''}"></span>`).join('');
  if(key==='raw')connectViewer();
- if(key==='clean')chart([{label:'Spread',values:series.map(d=>d.spread),color:'#315c4c'}],'Synthetic far minus near spread',v=>Math.round(v).toString());
+ if(key==='clean')chart([{label:'Spread',values:series.map(d=>d.spread),color:'#60a5fa'}],'Synthetic far minus near spread',v=>Math.round(v).toString());
  if(key==='backtest')drawBacktest();
  document.querySelectorAll('[data-range]').forEach(b=>b.addEventListener('click',()=>{state.range=Number(b.dataset.range);document.querySelectorAll('[data-range]').forEach(a=>{a.classList.toggle('selected',a===b);a.setAttribute('aria-pressed',String(a===b));});drawPrices();}));
  document.querySelectorAll('[data-clean]').forEach(b=>b.addEventListener('click',()=>{state.clean=b.dataset.clean==='true';document.querySelector('#clean-table').innerHTML=table(state.clean?cleanTicks():ticks,!state.clean);document.querySelectorAll('[data-clean]').forEach(a=>{a.classList.toggle('selected',a===b);a.setAttribute('aria-pressed',String(a===b));});}));
