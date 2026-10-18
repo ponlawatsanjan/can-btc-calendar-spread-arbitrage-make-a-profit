@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bitcoin futures spreads</title>
+<link rel="stylesheet" href="presentation-viewer.css">
+<style>body{margin:0;font:12px Arial,sans-serif}*{box-sizing:border-box}.toolbar{flex-wrap:wrap;align-items:center}.toolbar label{display:flex;gap:6px;align-items:center}button,select,input{padding:7px;font:11px Arial}aside{overflow:auto}aside label{display:flex;align-items:center;gap:6px;padding:7px 0}#message{padding:24px;color:#688178}.dot{height:7px;width:7px;flex-shrink:0;border-radius:50%}#chart{min-width:0}.empty{padding:35px;text-align:center}</style>
+<script src="vendor/plotly.min.js" defer></script><script src="snapshot.js" defer></script></head><body>
+<div class="toolbar"><label>From <input id="from" type="date" aria-label="From date, UTC"></label><label>To <input id="to" type="date" aria-label="To date, UTC"></label><button id="apply">Show dates</button><button id="reset">Full history</button><span>Saved overview · zoom uses saved observations</span></div>
+<div id="message" role="status">Opening saved observations...</div>
+<div class="layout"><aside><button id="all">Show all</button> <button id="none">Hide all</button><div id="pairs"></div></aside><section><div id="chart" aria-label="Calendar spread line chart"></div></section></div>
+</body></html>

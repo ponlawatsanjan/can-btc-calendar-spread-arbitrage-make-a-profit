@@ -1,0 +1,12 @@
+data/
+!website/data/
+!website/data/spreads.json
+__pycache__/
+*.pyc
+.venv-viewer/
+.cache/
+.runtime-viewer/
+.venv-raw-viewer/
+/*-preview.png
+/website-spread-debug.png
+/website-presentation-chart-mobile.png

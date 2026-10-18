@@ -1,0 +1,9 @@
+body{background:#fff;color:#28463e;font-family:Arial,sans-serif}
+body>header,.toolbar,aside,.help,#quality,#status{display:none!important}
+.layout{display:block}#chart{height:calc(100vh - 4px);min-height:330px}
+#loading-progress{position:absolute;z-index:5;left:8%;right:8%;top:30%;margin:0;background:#f2f8f5;border:1px solid #d4e5dd;color:#276052;padding:24px;border-radius:12px;box-shadow:0 10px 35px #193e3510}
+#progress-heading{font-size:13px}#progress-percent{color:#18685e}#progress-detail{color:#688178;font-size:11px}#progress-stage{font-size:0}#progress-stage:after{content:'Preparing the chart';font-size:13px}#progress-detail{font-size:0}#progress-detail:after{content:'Matching the two contract prices. Larger date ranges may take a few minutes.';font-size:11px}
+body.exploring .toolbar{display:flex!important;background:#f5f8f6;padding:12px;gap:10px;border-bottom:1px solid #e0e9e4}body.exploring aside{display:block!important;border-color:#e0e9e4;height:calc(100vh - 125px);min-height:200px;padding:12px}body.exploring .layout{display:grid;grid-template-columns:195px minmax(0,1fr)}body.exploring #chart{height:calc(100vh - 130px);min-height:300px}body.exploring #status.error{display:block!important;color:#b34230}
+button,select,input{background:#fff;color:#345c50;border-color:#cadbd2;border-radius:6px}aside label{font-size:10px;color:#527168}aside input[type=search]{margin-bottom:10px}
+@media(max-width:750px){body.exploring .layout{display:block}body.exploring aside{height:auto;max-height:140px;min-height:0}body.exploring #chart{height:410px}#chart{height:calc(100vh - 4px)}}
+body #status.error{display:block!important;color:#a54939;padding:18px;font-size:12px}
