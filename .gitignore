@@ -10,3 +10,8 @@ __pycache__/
 /*-preview.png
 /website-spread-debug.png
 /website-presentation-chart-mobile.png
+# Research tools stay local; this repository publishes the website.
+/*.py
+/requirements-viewer.txt
+/RAW_VIEWER.md
+/Start Raw Tick Viewer.cmd

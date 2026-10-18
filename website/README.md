@@ -1,24 +1,21 @@
-﻿# Calendar spread research presentation
+﻿# Website source
 
-Run `npm.cmd run dev` in this folder and open http://127.0.0.1:5180.
-The website is static: it does not start Python, read tick CSVs, or call the research API. The chart uses saved real trade matches in `data/spreads.json` with a local Plotly bundle in `vendor/`. These files must be included when publishing the website.
+Live presentation: https://ponlawatsanjan.github.io/can-btc-calendar-spread-arbitrage-make-a-profit/
 
-1. Plotting rules and a worked example.
-2. Saved interactive raw spread overview, all qualifying pairs. Hover, zoom, date selection and pair visibility run entirely in the browser.
-3. Clean data: synthetic draft.
-4. Backtest: hypothetical cost illustration, not historical performance.
-5. Findings: profitability remains unestablished.
+This folder is a complete static website: HTML, CSS, JavaScript, bundled Plotly and prepared chart data. It has no Python dependency or research API.
 
-## Refresh the saved chart
+## Local preview
 
-From the project root, run:
+Run `npm run dev` in this folder, then open http://127.0.0.1:5180. Node.js is needed only for this optional preview server. No dependencies or build step are required.
 
-```powershell
-python export_website_chart.py
-```
+## Chart data
 
-This is an author-only preparation step. It reuses the matched viewer cache where available; new data may take time to process. The default is 6,000 display points per pair across the full history. Matching always uses original ticks first, then keeps first/minimum-spread/maximum-spread/last observations per bucket. The actual number saved can be much smaller when a contract covers only a small portion of the full date range. All pairs with accepted matches are included.
+`snapshot.html` and `snapshot.js` render `data/spreads.json` entirely in the browser. The saved dataset includes 25 expiry pairs with accepted trade matches. Hover, zoom, date selection and pair visibility work without a backend.
 
-The snapshot records generation time, coverage, matching method, display budget, total match counts and whether each pair was sampled. Rows retain original near timestamps, far-minus-near spread and both leg prices. Zooming magnifies the saved observations; it does not retrieve omitted ticks. Use `python plot_raw_ticks.py --matched` for original-tick research detail.
+The dataset records generation time, coverage, matching method, display budget, total match counts and sampling flags. Rows retain original near timestamps, far-minus-near spread and both leg prices. The saved overview selects first/minimum-spread/maximum-spread/last observations per time bucket after matching. Zooming does not retrieve omitted observations.
 
-The static preview server uses gzip for assets. Initial browser rendering and downloading still take a moment, but never trigger raw-data processing. Changes to local CSVs appear on the website only after rerunning the export. No public deployment has been made.
+To update the published chart, replace `data/spreads.json` with a newly prepared dataset in the same format and push it to `main`. Data preparation happens separately from the website. Include all saved-data and vendor files in deployments.
+
+## Deployment
+
+The repository's GitHub Actions workflow publishes this folder to GitHub Pages. All asset links are relative so the presentation works under the repository URL. Clean-data and backtest pages are still illustrative drafts; no historical profitability result has been established.
